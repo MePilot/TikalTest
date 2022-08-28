@@ -27,7 +27,6 @@ const locationsSlice = createSlice({
         state.error = ''
       })
       .addCase(fetchLocations.rejected, (state, action) => {
-        state.characters = action.payload
         state.loading = false
         state.error = action.error.message
       })
