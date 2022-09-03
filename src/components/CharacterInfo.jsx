@@ -24,32 +24,32 @@ function CharacterInfo() {
 
     return (
         !characters.loading && !characters.error && unpopular_character ? (
-            
-                <table className={style.char_table}>
-                    <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>{unpopular_character?.name}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Origin name
-                            </td>
-                            <td>
-                                {unpopular_character?.origin?.name}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Origin dimension
-                            </td>
-                            <td>
-                                {locations.location?.dimension ? locations.location?.dimension : locations.loading ? 'Loading dimension' : locations.error && 'Error' }
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            
+
+            <table className={style.char_table}>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>{unpopular_character?.name}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Origin name
+                        </td>
+                        <td>
+                            {unpopular_character?.origin?.name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Origin dimension
+                        </td>
+                        <td>
+                            {locations.location?.dimension ? locations.location?.dimension : locations.loading ? 'Loading dimension' : locations.error && 'Error'}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
         ) : characters.loading ? <div>Loading</div> : characters.error && <div>Error</div>
     )
 }

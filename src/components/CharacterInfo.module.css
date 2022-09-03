@@ -4,7 +4,8 @@
     text-align: left;
 }
 
-th, td {
+th,
+td {
     border: 2px solid blue;
     padding: 8px;
-  }
+}
