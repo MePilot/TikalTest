@@ -9,8 +9,8 @@ function CharacterInfo() {
     const dispatch = useDispatch()
     const characters = useSelector((state) => state.characters)
     const unpopular_character = useSelector((state) => state.characters.unpopular_character)
-    const location = useSelector((state) => state.locations.location)
-    console.log('CharacterInfo')
+    const locations = useSelector((state) => state.locations)
+    console.log(`CharInfo`)
 
     useEffect(() => {
         dispatch(fetchCharacters(url))
@@ -23,9 +23,9 @@ function CharacterInfo() {
     }, [unpopular_character])
 
     return (
-        !characters.loading && !characters.error ? (
-            <div className={style.char_table}>
-                <table>
+        !characters.loading && !characters.error && unpopular_character ? (
+            
+                <table className={style.char_table}>
                     <tbody>
                         <tr>
                             <td>Name</td>
@@ -44,13 +44,13 @@ function CharacterInfo() {
                                 Origin dimension
                             </td>
                             <td>
-                                {location.dimension}
+                                {locations.location?.dimension ? locations.location?.dimension : locations.loading ? 'Loading dimension' : locations.error && 'Error' }
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        ) : characters.loading ? <div>Loading</div> : characters.error && <div>error</div>
+            
+        ) : characters.loading ? <div>Loading</div> : characters.error && <div>Error</div>
     )
 }
 

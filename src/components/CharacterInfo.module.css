@@ -1,4 +1,10 @@
 .char_table {
-    border: 2px solid;
+    table-layout: fixed;
     border-collapse: collapse;
+    text-align: left;
 }
+
+th, td {
+    border: 2px solid blue;
+    padding: 8px;
+  }

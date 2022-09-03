@@ -7,17 +7,9 @@ export const fetchCharacters = createAsyncThunk('characters/fetchCharacters',
     return response.data
   }
 )
-export const fetchCharacters2 = createAsyncThunk('characters/fetchCharacters2',
-  async (url) => {
-    const response = await axios.get(url)
 
-    return response.data
-  }
-)
 const initialState = {
   loading: false,
-  characters: [],
-  characters2: [],
   unpopular_character: '',
   error: ''
 }
@@ -38,22 +30,9 @@ const charactersSlice = createSlice({
         state.loading = false
         state.error = action.error.message
       })
-      .addCase(fetchCharacters2.pending, (state) => {
-        state.loading = true
-      })
-      .addCase(fetchCharacters2.fulfilled, (state, action) => {
-        state.loading = false
-        state.characters2 = action.payload
-        state.error = ''
-      })
-      .addCase(fetchCharacters2.rejected, (state, action) => {
-
-        state.loading = false
-        state.error = action.error.message
-      })
-  },
-
+  }
 })
+
 function findUnpopularCharacter(characters) {
   let minVal = Number.MAX_VALUE
   let char = null

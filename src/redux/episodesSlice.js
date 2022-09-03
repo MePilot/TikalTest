@@ -10,7 +10,7 @@ export const fetchEpisodes = createAsyncThunk('location/fetchEpisodes',
 const initialState = {
     loading: false,
     allEpisodes: [],
-    episode_count: '',
+    episodes_count: '',
     error: ''
 }
 const episodesSlice = createSlice({
@@ -23,7 +23,7 @@ const episodesSlice = createSlice({
             })
             .addCase(fetchEpisodes.fulfilled, (state, action) => {
                 state.loading = false
-                state.episode_count = action.payload.info.count
+                state.episodes_count = action.payload.info.count
                 state.error = ''
             })
             .addCase(fetchEpisodes.rejected, (state, action) => {
